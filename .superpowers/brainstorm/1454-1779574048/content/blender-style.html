@@ -1,0 +1,156 @@
+<h2>Which blender style direction?</h2>
+<p class="subtitle">Choose the visual personality for the redesigned blender</p>
+
+<div class="cards">
+
+  <!-- Option A: Realistic / Premium -->
+  <div class="card" data-choice="realistic" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0f172a; padding:20px; display:flex; justify-content:center; align-items:center;">
+      <svg viewBox="0 0 200 280" width="140" height="196">
+        <defs>
+          <linearGradient id="jarGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.03)"/>
+            <stop offset="30%" stop-color="rgba(255,255,255,0.12)"/>
+            <stop offset="70%" stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+          </linearGradient>
+          <linearGradient id="baseGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#475569"/>
+            <stop offset="50%" stop-color="#1e293b"/>
+            <stop offset="100%" stop-color="#0f172a"/>
+          </linearGradient>
+          <linearGradient id="liquidGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#ff6b9d"/>
+            <stop offset="100%" stop-color="#c026d3"/>
+          </linearGradient>
+          <filter id="glow">
+            <feGaussianBlur stdDeviation="3" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+        </defs>
+        <!-- Jar shadow -->
+        <ellipse cx="100" cy="268" rx="50" ry="6" fill="rgba(0,0,0,0.4)"/>
+        <!-- Jar body -->
+        <path d="M48 48 L152 48 L135 195 L65 195 Z" fill="url(#jarGrad)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+        <!-- Liquid inside -->
+        <path d="M68 188 L132 188 L128 145 L72 145 Z" fill="url(#liquidGrad)" opacity="0.85"/>
+        <!-- Bubbles -->
+        <circle cx="85" cy="170" r="3" fill="rgba(255,255,255,0.5)"/>
+        <circle cx="110" cy="158" r="2" fill="rgba(255,255,255,0.4)"/>
+        <circle cx="95" cy="178" r="2" fill="rgba(255,255,255,0.3)"/>
+        <!-- Highlight streak -->
+        <path d="M60 60 L68 185" stroke="rgba(255,255,255,0.12)" stroke-width="8" stroke-linecap="round"/>
+        <!-- Lid -->
+        <path d="M43 48 L157 48 L150 36 L50 36 Z" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <rect x="88" y="28" width="24" height="10" rx="5" fill="#334155" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <!-- Handle -->
+        <path d="M48 80 Q28 80 28 110 Q28 140 48 140" fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="6" stroke-linecap="round"/>
+        <!-- Base -->
+        <path d="M55 195 L145 195 L150 230 L50 230 Z" fill="url(#baseGrad)" stroke="rgba(0,0,0,0.5)" stroke-width="1"/>
+        <!-- Base panel detail -->
+        <rect x="65" y="200" width="70" height="20" rx="4" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <!-- Power button glow -->
+        <circle cx="100" cy="218" r="7" fill="#0f172a" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="100" cy="218" r="4" fill="#ef4444" filter="url(#glow)" opacity="0.9"/>
+        <!-- Measuring lines -->
+        <line x1="130" y1="80" x2="138" y2="80" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="133" y1="110" x2="140" y2="110" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <line x1="135" y1="140" x2="141" y2="140" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <!-- Blade -->
+        <ellipse cx="100" cy="195" rx="22" ry="5" fill="#334155"/>
+        <line x1="78" y1="193" x2="122" y2="197" stroke="#94a3b8" stroke-width="3" stroke-linecap="round"/>
+        <line x1="82" y1="197" x2="118" y2="193" stroke="#64748b" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>A — Realistic &amp; Premium</h3>
+      <p>Glossy glass jar, metallic base, rich highlights, glowing power button. Feels high-end and satisfying.</p>
+    </div>
+  </div>
+
+  <!-- Option B: Bold & Playful -->
+  <div class="card" data-choice="playful" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0f172a; padding:20px; display:flex; justify-content:center; align-items:center;">
+      <svg viewBox="0 0 200 280" width="140" height="196">
+        <defs>
+          <linearGradient id="playfulLiquid" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#fb923c"/>
+            <stop offset="100%" stop-color="#f43f5e"/>
+          </linearGradient>
+        </defs>
+        <!-- Bold base block -->
+        <rect x="40" y="195" width="120" height="45" rx="16" fill="#1e40af"/>
+        <rect x="55" y="205" width="90" height="25" rx="10" fill="#1d4ed8"/>
+        <!-- Speed dots -->
+        <circle cx="78" cy="217" r="5" fill="#60a5fa"/>
+        <circle cx="100" cy="217" r="5" fill="#93c5fd"/>
+        <circle cx="122" cy="217" r="5" fill="#bfdbfe"/>
+        <!-- Jar - chunky, rounded -->
+        <path d="M52 55 L148 55 Q155 55 153 65 L138 188 Q136 195 130 195 L70 195 Q64 195 62 188 L47 65 Q45 55 52 55 Z" fill="rgba(255,255,255,0.06)" stroke="#3b82f6" stroke-width="2.5"/>
+        <!-- Liquid - chunky wave top -->
+        <path d="M68 188 L132 188 L127 140 Q118 130 100 135 Q82 130 73 140 Z" fill="url(#playfulLiquid)"/>
+        <!-- Wavy top of liquid -->
+        <path d="M73 140 Q82 132 100 137 Q118 132 127 140" fill="none" stroke="#fb923c" stroke-width="2" stroke-linecap="round"/>
+        <!-- Big bubbles -->
+        <circle cx="82" cy="165" r="6" fill="rgba(255,255,255,0.35)"/>
+        <circle cx="112" cy="155" r="5" fill="rgba(255,255,255,0.25)"/>
+        <circle cx="96" cy="175" r="4" fill="rgba(255,255,255,0.3)"/>
+        <!-- Lid - rounded chunky -->
+        <rect x="42" y="38" width="116" height="20" rx="10" fill="#1e40af"/>
+        <rect x="82" y="28" width="36" height="14" rx="7" fill="#1d4ed8"/>
+        <!-- Handle - thick -->
+        <path d="M52 85 Q30 85 30 115 Q30 145 52 145" fill="none" stroke="#3b82f6" stroke-width="7" stroke-linecap="round"/>
+        <!-- Stars/sparkles -->
+        <text x="155" y="95" font-size="14" fill="#fbbf24">✦</text>
+        <text x="30" y="65" font-size="10" fill="#fb923c">✦</text>
+        <!-- Blade fat -->
+        <ellipse cx="100" cy="195" rx="26" ry="6" fill="#1e40af"/>
+        <line x1="74" y1="193" x2="126" y2="197" stroke="#93c5fd" stroke-width="5" stroke-linecap="round"/>
+        <line x1="78" y1="197" x2="122" y2="193" stroke="#60a5fa" stroke-width="5" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>B — Bold &amp; Playful</h3>
+      <p>Chunky shapes, bright colors, speed dots, sparkles. Fun and energetic — matches a smoothie brand's vibe.</p>
+    </div>
+  </div>
+
+  <!-- Option C: Minimal & Modern -->
+  <div class="card" data-choice="minimal" onclick="toggleSelect(this)">
+    <div class="card-image" style="background:#0f172a; padding:20px; display:flex; justify-content:center; align-items:center;">
+      <svg viewBox="0 0 200 280" width="140" height="196">
+        <defs>
+          <linearGradient id="minLiquid" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#34d399"/>
+            <stop offset="100%" stop-color="#06b6d4"/>
+          </linearGradient>
+        </defs>
+        <!-- Minimal jar - clean lines -->
+        <path d="M55 50 L145 50 L128 192 L72 192 Z" fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" stroke-linejoin="round"/>
+        <!-- Liquid - flat fill, sharp line -->
+        <path d="M74 188 L126 188 L122 145 L78 145 Z" fill="url(#minLiquid)" opacity="0.7"/>
+        <!-- Liquid top line only -->
+        <line x1="78" y1="145" x2="122" y2="145" stroke="#34d399" stroke-width="2" opacity="0.9"/>
+        <!-- Minimal lid - just a rectangle -->
+        <rect x="50" y="42" width="100" height="10" rx="2" fill="rgba(255,255,255,0.08)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+        <!-- Minimal base - thin strip -->
+        <rect x="58" y="192" width="84" height="36" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <!-- Single line detail on base -->
+        <line x1="70" y1="210" x2="130" y2="210" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <!-- Tiny power dot -->
+        <circle cx="100" cy="220" r="4" fill="rgba(52,211,153,0.8)"/>
+        <!-- One measurement line -->
+        <line x1="130" y1="110" x2="136" y2="110" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <text x="138" y="114" font-size="7" fill="rgba(255,255,255,0.2)" font-family="monospace">500</text>
+        <!-- Blade - thin -->
+        <line x1="80" y1="191" x2="120" y2="193" stroke="rgba(255,255,255,0.3)" stroke-width="2" stroke-linecap="round"/>
+        <line x1="83" y1="193" x2="117" y2="191" stroke="rgba(255,255,255,0.2)" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </div>
+    <div class="card-body">
+      <h3>C — Minimal &amp; Modern</h3>
+      <p>Clean lines, flat fills, tight proportions. The liquid color becomes the hero. Elegant and contemporary.</p>
+    </div>
+  </div>
+
+</div>

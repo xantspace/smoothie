@@ -1,0 +1,727 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="FruitBlend - Premium Organic Smoothies freshly blended to energize your body and soul. Explore 6 vibrant flavors or custom blend your own.">
+  <title>FruitBlend | Premium Organic Smoothies</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- SVG Gradients Definitions for reusable graphics -->
+  <svg style="position: absolute; width: 0; height: 0;" aria-hidden="true">
+    <defs>
+      <linearGradient id="logo-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#ff3f6c" />
+        <stop offset="100%" stop-color="#ff8e53" />
+      </linearGradient>
+      
+      <!-- Flavor Gradients -->
+      <linearGradient id="grad-mango" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#ffa000" />
+        <stop offset="100%" stop-color="#ff6f00" />
+      </linearGradient>
+      <linearGradient id="grad-berry" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#ff4b72" />
+        <stop offset="100%" stop-color="#b91c1c" />
+      </linearGradient>
+      <linearGradient id="grad-green" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#34d399" />
+        <stop offset="100%" stop-color="#047857" />
+      </linearGradient>
+      <linearGradient id="grad-citrus" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#fbbf24" />
+        <stop offset="100%" stop-color="#d97706" />
+      </linearGradient>
+      <linearGradient id="grad-coco" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#fafaf9" />
+        <stop offset="100%" stop-color="#d6d3d1" />
+      </linearGradient>
+      <linearGradient id="grad-acai" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#a78bfa" />
+        <stop offset="100%" stop-color="#5b21b6" />
+      </linearGradient>
+      
+      <!-- Blender Blade Metallic Gradient -->
+      <linearGradient id="grad-metal" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#cbd5e1" />
+        <stop offset="50%" stop-color="#64748b" />
+        <stop offset="100%" stop-color="#334155" />
+      </linearGradient>
+
+      <!-- Redesigned Blender Gradients -->
+      <linearGradient id="d-jar-left" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" stop-color="rgba(255,255,255,0.01)"/>
+        <stop offset="20%" stop-color="rgba(255,255,255,0.10)"/>
+        <stop offset="60%" stop-color="rgba(255,255,255,0.04)"/>
+        <stop offset="100%" stop-color="rgba(255,255,255,0.01)"/>
+      </linearGradient>
+      <linearGradient id="d-base" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#475569"/>
+        <stop offset="40%" stop-color="#1e293b"/>
+        <stop offset="100%" stop-color="#0f172a"/>
+      </linearGradient>
+      <linearGradient id="d-lid" x1="0%" y1="0%" x2="0%" y2="100%">
+        <stop offset="0%" stop-color="#334155"/>
+        <stop offset="100%" stop-color="#0f172a"/>
+      </linearGradient>
+      <linearGradient id="d-blade" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#cbd5e1"/>
+        <stop offset="50%" stop-color="#64748b"/>
+        <stop offset="100%" stop-color="#334155"/>
+      </linearGradient>
+      <filter id="d-glow-red" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="4" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+      <filter id="d-glow-green" x="-50%" y="-50%" width="200%" height="200%">
+        <feGaussianBlur stdDeviation="4" result="blur"/>
+        <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+      </filter>
+    </defs>
+  </svg>
+
+  <!-- --- Header & Navigation --- -->
+  <header>
+    <div class="container nav-container">
+      <a href="#" class="logo" id="header-logo">
+        <svg class="logo-icon" viewBox="0 0 32 32">
+          <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 25c-6.075 0-11-4.925-11-11S9.925 5 16 5s11 4.925 11 11-4.925 11-11 11z"/>
+          <path d="M16 8v8l6 3.5"/>
+        </svg>
+        <span class="logo-text">Fruit<span>Blend</span></span>
+      </a>
+      
+      <nav class="nav-menu">
+        <a href="#" class="nav-link active" id="nav-home">Home</a>
+        <a href="#flavors" class="nav-link" id="nav-flavors">Flavors</a>
+        <a href="#blender" class="nav-link" id="nav-blender">Blender Game</a>
+        <a href="#benefits" class="nav-link" id="nav-benefits">Why Us</a>
+        <a href="#contact" class="nav-link" id="nav-contact">Contact</a>
+      </nav>
+      
+      <a href="#blender" class="btn btn-primary" id="btn-cta-blend">Blend Now</a>
+    </div>
+  </header>
+
+  <!-- --- Hero Section --- -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 17h-2v-2h2v2zm2.07-7.75l-.9.92C13.45 12.9 13 13.5 13 15h-2v-.5c0-1.1.45-2.1 1.17-2.83l1.24-1.26c.37-.36.59-.86.59-1.41 0-1.1-.9-2-2-2s-2 .9-2 2H7c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.04-.42 1.99-1.07 2.75z"/></svg>
+          100% Raw & Organic Superfoods
+        </div>
+        <h1 class="hero-title">
+          Vibrant Health <br>In Every <span>Sip.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Experience pure taste explosion with our artisan, cold-blended superfood smoothies. Packed with rich nutrients, fresh fruits, and absolutely zero artificial sugars.
+        </p>
+        <div class="hero-actions">
+          <a href="#flavors" class="btn btn-primary" id="hero-btn-explore">Explore Flavors</a>
+          <a href="#contact" class="btn btn-secondary" id="hero-btn-contact">Get In Touch</a>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="hero-circle-bg"></div>
+        <!-- Interactive Parallax SVG Fruits & Drink -->
+        <svg class="interactive-fruits-svg" viewBox="0 0 500 500">
+          <!-- Glass Jar -->
+          <g class="fruit-layer" data-speed="2" transform="translate(0, 0)">
+            <!-- Glass outline -->
+            <path d="M180 380 L320 380 L350 140 L150 140 Z" fill="rgba(255, 255, 255, 0.05)" stroke="rgba(255,255,255,0.15)" stroke-width="3" />
+            <!-- Liquid -->
+            <path d="M185 370 L315 370 L342 200 L158 200 Z" fill="url(#logo-grad)" opacity="0.85" />
+            <!-- Bubbles inside drink -->
+            <circle cx="210" cy="280" r="6" fill="#fff" opacity="0.6"/>
+            <circle cx="270" cy="240" r="4" fill="#fff" opacity="0.5"/>
+            <circle cx="230" cy="320" r="5" fill="#fff" opacity="0.4"/>
+            <!-- Straw -->
+            <line x1="250" y1="230" x2="280" y2="80" stroke="#fff" stroke-dasharray="10 5" stroke-width="8" stroke-linecap="round" />
+          </g>
+          
+          <!-- Floating Mango Segment -->
+          <g class="fruit-layer" data-speed="-5" transform="translate(30, 20)">
+            <path d="M380 180 C430 180 450 220 410 250 C370 280 340 230 380 180 Z" fill="#ffb300" filter="drop-shadow(0 10px 10px rgba(0,0,0,0.15))"/>
+            <path d="M390 195 C420 195 430 220 410 235 Z" fill="#ff7f00" opacity="0.7"/>
+          </g>
+          
+          <!-- Floating Strawberry -->
+          <g class="fruit-layer" data-speed="8" transform="translate(-10, -30)">
+            <path d="M120 120 C100 80 60 90 70 130 C80 170 120 160 120 120 Z" fill="#ff3366" filter="drop-shadow(0 10px 10px rgba(0,0,0,0.15))"/>
+            <!-- Leaf Crown -->
+            <path d="M90 95 C95 85 105 85 110 95 C115 88 125 90 120 100 C110 102 90 102 90 95 Z" fill="#22c55e" />
+            <!-- Seeds -->
+            <circle cx="95" cy="120" r="1.5" fill="#ffd700"/>
+            <circle cx="105" cy="135" r="1.5" fill="#ffd700"/>
+            <circle cx="85" cy="130" r="1.5" fill="#ffd700"/>
+          </g>
+
+          <!-- Floating Blueberries -->
+          <g class="fruit-layer" data-speed="-3" transform="translate(20, -10)">
+            <circle cx="360" cy="350" r="16" fill="#2563eb" filter="drop-shadow(0 10px 8px rgba(0,0,0,0.15))"/>
+            <circle cx="360" cy="350" r="6" fill="#1e3a8a" opacity="0.6"/>
+            <circle cx="340" cy="365" r="14" fill="#3b82f6" filter="drop-shadow(0 10px 8px rgba(0,0,0,0.15))"/>
+            <circle cx="340" cy="365" r="5" fill="#1d4ed8" opacity="0.6"/>
+          </g>
+
+          <!-- Floating Mint Leaves -->
+          <g class="fruit-layer" data-speed="6" transform="translate(10, 50)">
+            <path d="M110 260 C70 260 60 290 100 310 C140 330 130 280 110 260 Z" fill="#4ade80" filter="drop-shadow(0 8px 6px rgba(0,0,0,0.15))"/>
+            <path d="M100 285 L85 275" stroke="#166534" stroke-width="2" stroke-linecap="round"/>
+            <path d="M105 295 L120 305" stroke="#166534" stroke-width="2" stroke-linecap="round"/>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Flavors Showcase --- -->
+  <section class="flavors" id="flavors">
+    <div class="container">
+      <div class="section-header">
+        <h2>Taste Our Signature Blends</h2>
+        <p>Explore our highly curated, high-vitality flavor line-up. Every cup is fresh, cold-blended, and bursts with antioxidant rich vitamins.</p>
+      </div>
+      
+      <div class="flavors-grid">
+        
+        <!-- Card 1: Mango Tango -->
+        <div class="flavor-card glass-panel" style="--card-color: var(--color-mango);" id="card-mango">
+          <div class="flavor-illustration">
+            <svg viewBox="0 0 200 200">
+              <path d="M70 160 L130 160 L145 50 L55 50 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+              <path d="M74 152 L126 152 L138 75 L62 75 Z" fill="url(#grad-mango)" />
+              <line x1="110" y1="100" x2="135" y2="20" stroke="#fff" stroke-width="5" stroke-dasharray="6 3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="flavor-tag" style="--tag-bg: var(--color-mango);">Tropical Energy</span>
+          <h3 class="flavor-title">Mango Tango</h3>
+          <p class="flavor-desc">A luscious blend of golden sun-ripened mangoes, sweet peach nectar, and a splash of tangy passionfruit.</p>
+          <div class="flavor-meta">
+            <span class="flavor-calories">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              185 kcal
+            </span>
+            <button class="btn-details" data-flavor="mango" id="btn-details-mango">Nutrition</button>
+          </div>
+        </div>
+
+        <!-- Card 2: Berry Blast -->
+        <div class="flavor-card glass-panel" style="--card-color: var(--color-berry);" id="card-berry">
+          <div class="flavor-illustration">
+            <svg viewBox="0 0 200 200">
+              <path d="M70 160 L130 160 L145 50 L55 50 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+              <path d="M74 152 L126 152 L138 75 L62 75 Z" fill="url(#grad-berry)" />
+              <line x1="110" y1="100" x2="135" y2="20" stroke="#fff" stroke-width="5" stroke-dasharray="6 3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="flavor-tag" style="--tag-bg: var(--color-berry);">Antioxidant Booster</span>
+          <h3 class="flavor-title">Wild Berry Blast</h3>
+          <p class="flavor-desc">A powerful berry explosion packed with hand-picked strawberries, wild blueberries, and mountain raspberries.</p>
+          <div class="flavor-meta">
+            <span class="flavor-calories">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              142 kcal
+            </span>
+            <button class="btn-details" data-flavor="berry" id="btn-details-berry">Nutrition</button>
+          </div>
+        </div>
+
+        <!-- Card 3: Green Glow -->
+        <div class="flavor-card glass-panel" style="--card-color: var(--color-green);" id="card-green">
+          <div class="flavor-illustration">
+            <svg viewBox="0 0 200 200">
+              <path d="M70 160 L130 160 L145 50 L55 50 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+              <path d="M74 152 L126 152 L138 75 L62 75 Z" fill="url(#grad-green)" />
+              <line x1="110" y1="100" x2="135" y2="20" stroke="#fff" stroke-width="5" stroke-dasharray="6 3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="flavor-tag" style="--tag-bg: var(--color-green);">Pure Detox</span>
+          <h3 class="flavor-title">Emerald Green Glow</h3>
+          <p class="flavor-desc">An energizing organic green mix of baby spinach, crisp green apple, fresh ginger root, and organic kale.</p>
+          <div class="flavor-meta">
+            <span class="flavor-calories">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              120 kcal
+            </span>
+            <button class="btn-details" data-flavor="green" id="btn-details-green">Nutrition</button>
+          </div>
+        </div>
+
+        <!-- Card 4: Citrus Splash -->
+        <div class="flavor-card glass-panel" style="--card-color: var(--color-citrus);" id="card-citrus">
+          <div class="flavor-illustration">
+            <svg viewBox="0 0 200 200">
+              <path d="M70 160 L130 160 L145 50 L55 50 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+              <path d="M74 152 L126 152 L138 75 L62 75 Z" fill="url(#grad-citrus)" />
+              <line x1="110" y1="100" x2="135" y2="20" stroke="#fff" stroke-width="5" stroke-dasharray="6 3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="flavor-tag" style="--tag-bg: var(--color-citrus);">Immunity Shield</span>
+          <h3 class="flavor-title">Citrus Splash</h3>
+          <p class="flavor-desc">A refreshing splash of fresh orange juice, squeezed grapefruit, and a hint of zesty lemon juice.</p>
+          <div class="flavor-meta">
+            <span class="flavor-calories">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              156 kcal
+            </span>
+            <button class="btn-details" data-flavor="citrus" id="btn-details-citrus">Nutrition</button>
+          </div>
+        </div>
+
+        <!-- Card 5: Coco Dream -->
+        <div class="flavor-card glass-panel" style="--card-color: var(--color-coco);" id="card-coco">
+          <div class="flavor-illustration">
+            <svg viewBox="0 0 200 200">
+              <path d="M70 160 L130 160 L145 50 L55 50 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+              <path d="M74 152 L126 152 L138 75 L62 75 Z" fill="url(#grad-coco)" />
+              <line x1="110" y1="100" x2="135" y2="20" stroke="#555" stroke-width="5" stroke-dasharray="6 3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="flavor-tag" style="--tag-bg: var(--color-coco);">Recovery & Hydrate</span>
+          <h3 class="flavor-title">Creamy Coco Dream</h3>
+          <p class="flavor-desc">Creamy, dreamy blend of raw coconut milk, sweet golden pineapples, and high-potassium bananas.</p>
+          <div class="flavor-meta">
+            <span class="flavor-calories">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              210 kcal
+            </span>
+            <button class="btn-details" data-flavor="coco" id="btn-details-coco">Nutrition</button>
+          </div>
+        </div>
+
+        <!-- Card 6: Açai Fusion -->
+        <div class="flavor-card glass-panel" style="--card-color: var(--color-acai);" id="card-acai">
+          <div class="flavor-illustration">
+            <svg viewBox="0 0 200 200">
+              <path d="M70 160 L130 160 L145 50 L55 50 Z" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+              <path d="M74 152 L126 152 L138 75 L62 75 Z" fill="url(#grad-acai)" />
+              <line x1="110" y1="100" x2="135" y2="20" stroke="#fff" stroke-width="5" stroke-dasharray="6 3" stroke-linecap="round" />
+            </svg>
+          </div>
+          <span class="flavor-tag" style="--tag-bg: var(--color-acai);">Superfood Special</span>
+          <h3 class="flavor-title">Açai Fusion</h3>
+          <p class="flavor-desc">Superfood antioxidant dynamo loaded with organic açai berries, blackberries, and pomegranate nectar.</p>
+          <div class="flavor-meta">
+            <span class="flavor-calories">
+              <svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              168 kcal
+            </span>
+            <button class="btn-details" data-flavor="acai" id="btn-details-acai">Nutrition</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Interactive Smoothie Blender Game --- -->
+  <section class="blender-section" id="blender">
+    <div class="container blender-grid">
+      
+      <div class="blender-instructions">
+        <h3>Interactive Blend Lab</h3>
+        <p>Unleash your inner dynamic mixologist! Pick up to three organic ingredients below, toss them into the high-performance FruitBlend 3000 blender, and click "Blend It!" to create your own signature health potion.</p>
+        
+        <!-- Ingredient Picker Grid -->
+        <div class="ingredients-selector">
+          <!-- Strawberry Button -->
+          <button class="ingredient-btn" data-ingredient="strawberry" data-color="#ff3f6c" id="ing-strawberry">
+            <svg viewBox="0 0 50 50">
+              <path d="M25 42 C15 38 10 25 15 15 C20 7 30 7 35 15 C40 25 35 38 25 42 Z" fill="#ff3f6c"/>
+              <path d="M20 12 C25 6 30 10 25 14 Z" fill="#22c55e"/>
+              <circle cx="21" cy="22" r="1.5" fill="#ffd700"/><circle cx="29" cy="26" r="1.5" fill="#ffd700"/><circle cx="25" cy="32" r="1.5" fill="#ffd700"/>
+            </svg>
+            <span>Strawberry</span>
+          </button>
+          
+          <!-- Mango Button -->
+          <button class="ingredient-btn" data-ingredient="mango" data-color="#ff9100" id="ing-mango">
+            <svg viewBox="0 0 50 50">
+              <path d="M15 15 C22 10 38 18 35 32 C32 40 20 42 15 35 C10 28 8 20 15 15 Z" fill="#ff9100"/>
+              <circle cx="28" cy="22" r="2.5" fill="#ffd700" opacity="0.6"/>
+            </svg>
+            <span>Mango</span>
+          </button>
+          
+          <!-- Spinach Button -->
+          <button class="ingredient-btn" data-ingredient="spinach" data-color="#10b981" id="ing-spinach">
+            <svg viewBox="0 0 50 50">
+              <path d="M25 8 C15 12 12 32 25 42 C38 32 35 12 25 8 Z" fill="#10b981"/>
+              <line x1="25" y1="12" x2="25" y2="38" stroke="#047857" stroke-width="2"/>
+            </svg>
+            <span>Spinach</span>
+          </button>
+
+          <!-- Banana Button -->
+          <button class="ingredient-btn" data-ingredient="banana" data-color="#fbbf24" id="ing-banana">
+            <svg viewBox="0 0 50 50">
+              <path d="M12 12 C24 10 38 20 35 38 C28 35 20 22 12 12 Z" fill="#fbbf24"/>
+              <path d="M12 12 C10 10 12 15 12 12 Z" fill="#78350f"/>
+            </svg>
+            <span>Banana</span>
+          </button>
+
+          <!-- Coconut Button -->
+          <button class="ingredient-btn" data-ingredient="coconut" data-color="#e2e8f0" id="ing-coconut">
+            <svg viewBox="0 0 50 50">
+              <circle cx="25" cy="25" r="18" fill="#78350f"/>
+              <circle cx="25" cy="25" r="14" fill="#f8fafc"/>
+            </svg>
+            <span>Coconut</span>
+          </button>
+
+          <!-- Blueberry Button -->
+          <button class="ingredient-btn" data-ingredient="blueberry" data-color="#3b82f6" id="ing-blueberry">
+            <svg viewBox="0 0 50 50">
+              <circle cx="25" cy="20" r="10" fill="#3b82f6"/>
+              <circle cx="18" cy="30" r="10" fill="#1d4ed8"/>
+              <circle cx="32" cy="30" r="10" fill="#2563eb"/>
+            </svg>
+            <span>Blueberry</span>
+          </button>
+        </div>
+        
+        <!-- Selection warning/tip -->
+        <p id="blender-status" style="font-size: 0.9rem; font-style: italic; color: var(--accent-pink);">Please select at least 1 ingredient to begin.</p>
+        <button class="btn btn-primary blend-action-btn" id="btn-blend-trigger" disabled>Blend It!</button>
+      </div>
+      
+      <!-- Interactive Blender Simulation Wrapper -->
+      <div class="blender-container glass-panel">
+        <div class="blender-wrapper" id="blender-visual-box">
+          
+          <!-- Blender SVG Graphic -->
+          <svg class="blender-svg" viewBox="0 0 320 420">
+            <!-- Drop shadow -->
+            <ellipse cx="160" cy="412" rx="75" ry="10" fill="rgba(0,0,0,0.45)"/>
+
+            <!-- Handle -->
+            <path d="M102 110 Q68 110 68 150 Q68 200 102 200"
+                  fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="9" stroke-linecap="round"/>
+            <path d="M102 110 Q72 110 72 150 Q72 196 102 196"
+                  fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5" stroke-linecap="round"/>
+
+            <!-- Jar body -->
+            <path d="M102 82 L218 82 L192 302 L128 302 Z"
+                  fill="url(#d-jar-left)" stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+            <!-- Left highlight streak -->
+            <path d="M108 90 L134 295" stroke="rgba(255,255,255,0.10)" stroke-width="10" stroke-linecap="round"/>
+            <!-- Right edge reflection -->
+            <path d="M208 90 L196 280" stroke="rgba(255,255,255,0.04)" stroke-width="6" stroke-linecap="round"/>
+
+            <!-- Liquid layer (JS-controlled) -->
+            <path class="blender-liquid" id="liquid-layer" d="M131 296 L189 296 L189 296 L131 296 Z"/>
+
+            <!-- Measuring marks -->
+            <line x1="200" y1="130" x2="212" y2="130" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+            <text x="214" y="134" font-size="9" fill="rgba(255,255,255,0.22)" font-family="monospace">MAX</text>
+            <line x1="204" y1="180" x2="213" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line x1="206" y1="230" x2="214" y2="230" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+            <!-- Lid -->
+            <path d="M96 82 L224 82 L216 66 L104 66 Z" fill="url(#d-lid)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <rect x="136" y="52" width="48" height="16" rx="8" fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+            <rect x="148" y="46" width="24" height="10" rx="5" fill="#0f172a" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+            <!-- Base body -->
+            <path d="M120 302 L200 302 L208 372 L112 372 Z"
+                  fill="url(#d-base)" stroke="rgba(0,0,0,0.6)" stroke-width="1.5"/>
+            <!-- Base panel inset -->
+            <rect x="124" y="310" width="72" height="50" rx="6"
+                  fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+            <!-- Speed indicator dots -->
+            <circle cx="143" cy="328" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <circle cx="160" cy="328" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <circle cx="177" cy="328" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+            <!-- Power button ring -->
+            <circle cx="160" cy="351" r="12" fill="#0f172a" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+            <!-- Power indicator (JS swaps fill and filter) -->
+            <circle cx="160" cy="351" r="6" fill="#dc2626" id="base-indicator-light" filter="url(#d-glow-red)"/>
+            <!-- Power symbol icon -->
+            <path d="M160 346 L160 350" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+            <path d="M156.5 347.5 A5 5 0 1 0 163.5 347.5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+            <!-- Base footer strip -->
+            <rect x="112" y="366" width="96" height="8" rx="4" fill="rgba(0,0,0,0.3)"/>
+
+            <!-- Blade hub -->
+            <ellipse cx="160" cy="302" rx="22" ry="7" fill="#334155" stroke="rgba(0,0,0,0.4)" stroke-width="1"/>
+            <!-- Spinning blade (JS adds .blending class on parent to trigger spin) -->
+            <g class="blender-blade" id="spinner-blade">
+              <line x1="138" y1="300" x2="182" y2="304" stroke="url(#d-blade)" stroke-width="5" stroke-linecap="round"/>
+              <line x1="141" y1="304" x2="179" y2="300" stroke="url(#d-blade)" stroke-width="5" stroke-linecap="round"/>
+            </g>
+            <!-- Center rivet -->
+            <circle cx="160" cy="302" r="4" fill="#475569" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+          </svg>
+
+        </div>
+
+          <!-- Glass SVG (hidden until pour phase) -->
+          <svg class="glass-svg" id="glass-svg" viewBox="0 0 120 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <clipPath id="glass-clip">
+                <path d="M18 12 L102 12 L90 168 L30 168 Z"/>
+              </clipPath>
+            </defs>
+            <!-- Glass outline -->
+            <path d="M18 12 L102 12 L90 168 L30 168 Z"
+                  fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+            <!-- Left highlight streak -->
+            <path d="M24 18 L34 162" stroke="rgba(255,255,255,0.10)" stroke-width="8" stroke-linecap="round"/>
+            <!-- Liquid fill (JS animates y and height attributes) -->
+            <rect class="glass-liquid" id="glass-liquid" x="0" y="168" width="120" height="0"
+                  fill="#ffffff" clip-path="url(#glass-clip)" opacity="0.85"/>
+            <!-- Foam layer (shown after fill) -->
+            <ellipse class="glass-foam" id="glass-foam" cx="60" cy="168" rx="30" ry="5"
+                     fill="rgba(255,255,255,0.2)" opacity="0"/>
+            <!-- Straw -->
+            <line x1="82" y1="12" x2="96" y2="-12" stroke="rgba(255,255,255,0.4)"
+                  stroke-width="4" stroke-dasharray="5 3" stroke-linecap="round"/>
+            <!-- Base rim -->
+            <line x1="30" y1="168" x2="90" y2="168" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+
+          <!-- Pour stream overlay (spans full container, JS sets path) -->
+          <svg id="pour-stream-svg" class="pour-stream-svg" xmlns="http://www.w3.org/2000/svg">
+            <path id="pour-stream-path" class="pour-stream-path" d="" fill="none"
+                  stroke="rgba(255,255,255,0.6)" stroke-width="5" stroke-linecap="round" opacity="0"/>
+          </svg>
+
+          <!-- Result label (shown after pour completes) -->
+          <div class="blend-result-label" id="blend-result-label">
+            <h4 class="blend-result-name" id="blend-result-name"></h4>
+            <p class="blend-result-sub">Your custom smoothie</p>
+          </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- --- Core Benefits --- -->
+  <section class="benefits" id="benefits">
+    <div class="container">
+      <div class="section-header">
+        <h2>What Makes Us Organic</h2>
+        <p>We source absolutely everything responsibly to guarantee the highest grade nutrition on earth.</p>
+      </div>
+      
+      <div class="benefits-grid">
+        <!-- 100% Organic -->
+        <div class="benefit-card glass-panel" id="benefit-organic">
+          <div class="benefit-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364-6.364l-.707.707M6.343 17.657l-.707.707m0-12.728l.707.707m12.728 12.728l.707-.707M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3>100% Raw Ingredients</h3>
+          <p>No chemical processing, no synthetic concentrates. Just fresh whole foods freeze-dried or fresh-plucked.</p>
+        </div>
+
+        <!-- Zero Sugar Added -->
+        <div class="benefit-card glass-panel" id="benefit-sugar">
+          <div class="benefit-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </div>
+          <h3>Zero Added Sugar</h3>
+          <p>We let nature's natural fructose do all the sweetening. Clean energy without the brutal insulin crashes.</p>
+        </div>
+
+        <!-- Biodegradable Packaging -->
+        <div class="benefit-card glass-panel" id="benefit-packaging">
+          <div class="benefit-icon">
+            <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4.871 4A17.926 17.926 0 003 12c0 2.943.704 5.72 1.956 8.174M19.129 4C20.296 6.477 21 9.177 21 12c0 2.823-.704 5.523-1.871 8M12 3v18m-8.174-8.174L12 12m0 0l8.174-8.174M12 12l-8.174-8.174M12 12l8.174 8.174"/></svg>
+          </div>
+          <h3>Eco-Friendly Cups</h3>
+          <p>Every single straw, lid, and cup is crafted strictly from fully plant-based biodegradable materials.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Contact Section --- -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="glass-panel contact-layout">
+        
+        <!-- Info Panel -->
+        <div class="contact-info-panel">
+          <div class="contact-header">
+            <h3>Get in Touch</h3>
+            <p>Have questions about customized blends, catering events, or subscription orders? Drop us a line!</p>
+          </div>
+          
+          <div class="contact-details">
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <h4>Call Us</h4>
+                <p>+1 (800) 555-FRUIT</p>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <h4>Email Us</h4>
+                <p>hello@fruitblend.com</p>
+              </div>
+            </div>
+
+            <div class="contact-detail-item">
+              <div class="contact-detail-icon">
+                <svg fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+              </div>
+              <div class="contact-detail-text">
+                <h4>Location</h4>
+                <p>42 Tropical Ave, Sun City</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Form Panel -->
+        <div class="contact-form-panel" style="position: relative;">
+          <!-- Success overlay container -->
+          <div class="form-success-overlay" id="form-success-box">
+            <div class="success-icon-wrapper">
+              <svg width="40" height="40" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+            </div>
+            <h3>Thank You!</h3>
+            <p>Your custom message has flown straight to our mixing table. We will be in touch within 24 hours!</p>
+          </div>
+          
+          <form id="contact-form" novalidate>
+            <div class="form-group-row">
+              <div class="form-group" id="group-name">
+                <label class="form-label" for="contact-name">Your Name</label>
+                <input type="text" class="form-input" id="contact-name" placeholder="John Doe">
+                <span class="error-message">Name is required</span>
+              </div>
+              <div class="form-group" id="group-email">
+                <label class="form-label" for="contact-email">Your Email</label>
+                <input type="email" class="form-input" id="contact-email" placeholder="john@example.com">
+                <span class="error-message">Enter a valid email address</span>
+              </div>
+            </div>
+            
+            <div class="form-group" id="group-subject">
+              <label class="form-label" for="contact-subject">Inquiry Subject</label>
+              <input type="text" class="form-input" id="contact-subject" placeholder="Custom Blends / Catering">
+              <span class="error-message">Subject is required</span>
+            </div>
+
+            <div class="form-group" id="group-message">
+              <label class="form-label" for="contact-message">Your Message</label>
+              <textarea class="form-textarea" id="contact-message" placeholder="Tell us how we can color your day..."></textarea>
+              <span class="error-message">Message cannot be empty</span>
+            </div>
+            
+            <button type="submit" class="btn btn-primary" id="btn-submit-form">Send Message</button>
+          </form>
+        </div>
+        
+      </div>
+    </div>
+  </section>
+
+  <!-- --- Footer --- -->
+  <footer>
+    <div class="container footer-grid">
+      <div class="footer-info">
+        <a href="#" class="logo">
+          <svg class="logo-icon" viewBox="0 0 32 32">
+            <path d="M16 2C8.268 2 2 8.268 2 16s6.268 14 14 14 14-6.268 14-14S23.732 2 16 2zm0 25c-6.075 0-11-4.925-11-11S9.925 5 16 5s11 4.925 11 11-4.925 11-11 11z"/>
+            <path d="M16 8v8l6 3.5"/>
+          </svg>
+          <span class="logo-text">Fruit<span>Blend</span></span>
+        </a>
+        <p>Delivering maximum vitality and delicious health in every drop since 2026. Hand-crafted, sustainably sourced, and raw.</p>
+        <div class="social-links">
+          <a href="#" class="social-btn" id="social-fb">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z"/></svg>
+          </a>
+          <a href="#" class="social-btn" id="social-tw">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/></svg>
+          </a>
+          <a href="#" class="social-btn" id="social-inst">
+            <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div class="footer-nav">
+        <h4>Navigation</h4>
+        <div class="footer-menu">
+          <a href="#">Home</a>
+          <a href="#flavors">Flavors</a>
+          <a href="#blender">Blender Game</a>
+          <a href="#benefits">Why Us</a>
+          <a href="#contact">Contact Form</a>
+        </div>
+      </div>
+
+      <div class="footer-subscribe">
+        <h4>Weekly Energy Dose</h4>
+        <p>Subscribe to get exclusive custom recipes, discount drops, and antioxidant tips straight to your inbox.</p>
+        <form class="subscribe-form" id="subscribe-newsletter" onsubmit="event.preventDefault(); alert('Subscribed! Thank you.'); this.reset();">
+          <input type="email" class="subscribe-input" placeholder="you@example.com" required>
+          <button type="submit" class="btn btn-primary">Join</button>
+        </form>
+      </div>
+    </div>
+    
+    <div class="container footer-bottom">
+      <p>&copy; 2026 FruitBlend Inc. Crafted with passion. All rights reserved.</p>
+      <p>Organic Cert. #409-A3 | Designed for maximum wow factor.</p>
+    </div>
+  </footer>
+
+  <!-- --- Dynamic Modal Backdrop overlay --- -->
+  <div class="modal-overlay" id="nutrition-modal">
+    <div class="modal-card glass-panel">
+      <button class="modal-close-btn" id="modal-close">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+      
+      <div class="modal-content-grid">
+        <div class="modal-visual-wrap" id="modal-visual-placeholder">
+          <!-- Populated dynamically by JS -->
+        </div>
+        
+        <div class="modal-info-wrap">
+          <h3 class="modal-title" id="modal-title">Flavor Title</h3>
+          <p class="modal-desc" id="modal-desc">Detailed flavor profile description will go here.</p>
+          
+          <h4 class="modal-stats-title">Nutrition Facts</h4>
+          <div class="modal-stats-grid">
+            <div class="modal-stat-box">
+              <span class="modal-stat-val" id="stat-cals">0</span>
+              <span class="modal-stat-label">Calories</span>
+            </div>
+            <div class="modal-stat-box">
+              <span class="modal-stat-val" id="stat-sugar">0g</span>
+              <span class="modal-stat-label">Natural Sugars</span>
+            </div>
+            <div class="modal-stat-box">
+              <span class="modal-stat-val" id="stat-fiber">0g</span>
+              <span class="modal-stat-label">Dietary Fiber</span>
+            </div>
+          </div>
+          
+          <h4 class="modal-stats-title">Primary Ingredients</h4>
+          <p id="modal-ingredients" style="color: var(--text-muted); font-size: 0.95rem;">Details...</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

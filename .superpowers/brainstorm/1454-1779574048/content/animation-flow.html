@@ -1,0 +1,111 @@
+<h2>Design Section 2 — Animation Sequence</h2>
+<p class="subtitle">The full dramatic blend flow, phase by phase</p>
+
+<style>
+.timeline { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+.phase { display: flex; gap: 20px; align-items: stretch; }
+.phase-line { display: flex; flex-direction: column; align-items: center; width: 40px; flex-shrink: 0; }
+.phase-dot { width: 14px; height: 14px; border-radius: 50%; background: #ff3f6c; flex-shrink: 0; margin-top: 4px; box-shadow: 0 0 8px rgba(255,63,108,0.6); }
+.phase-connector { width: 2px; flex: 1; background: rgba(255,63,108,0.2); min-height: 16px; }
+.phase-body { flex: 1; padding: 16px 20px; margin-bottom: 12px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); border-radius: 10px; }
+.phase-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; color: #ff3f6c; font-weight: 700; margin-bottom: 4px; }
+.phase-title { font-size: 1rem; font-weight: 700; color: #f1f5f9; margin-bottom: 6px; }
+.phase-desc { font-size: 0.875rem; color: #94a3b8; line-height: 1.6; }
+.phase-timing { font-size: 0.75rem; color: #475569; font-family: monospace; margin-top: 8px; }
+.tag { display: inline-block; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; font-weight: 600; margin-right: 4px; margin-top: 6px; }
+.tag-css { background: rgba(59,130,246,0.15); color: #60a5fa; border: 1px solid rgba(59,130,246,0.2); }
+.tag-js { background: rgba(251,191,36,0.15); color: #fbbf24; border: 1px solid rgba(251,191,36,0.2); }
+.tag-svg { background: rgba(52,211,153,0.15); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+</style>
+
+<div class="timeline">
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-connector"></div>
+    </div>
+    <div class="phase-body">
+      <div class="phase-label">Phase 1 · 0 – 1.2s</div>
+      <div class="phase-title">Ingredient Drop-In</div>
+      <div class="phase-desc">
+        Each selected ingredient falls one-at-a-time from above the blender lid into the jar. On landing, a small <strong>ripple/splash ring</strong> radiates outward from the liquid surface. The liquid tints slightly with each ingredient's color.
+      </div>
+      <div class="phase-timing">~0.4s per ingredient · staggered · cubic-bezier drop curve</div>
+      <span class="tag tag-css">CSS @keyframes</span>
+      <span class="tag tag-svg">SVG ripple circle</span>
+      <span class="tag tag-js">JS stagger timing</span>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-connector"></div>
+    </div>
+    <div class="phase-body">
+      <div class="phase-label">Phase 2 · 1.2 – 3.2s</div>
+      <div class="phase-title">Full Blend — Blade Frenzy</div>
+      <div class="phase-desc">
+        Blade spins at high speed with a <strong>motion-blur CSS filter</strong>. Liquid churns — a skew + scaleY oscillation makes it look like it's sloshing violently. Bubbles (small SVG circles) rise from the blade and pop at the surface. The jar gets a subtle <strong>vibration shake</strong> (translateX ±2px).
+      </div>
+      <div class="phase-timing">2s duration · blade: 0.08s rotate loop · shake: 0.05s loop</div>
+      <span class="tag tag-css">CSS blur filter</span>
+      <span class="tag tag-css">CSS skewX + scaleY</span>
+      <span class="tag tag-js">JS bubble spawner</span>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-connector"></div>
+    </div>
+    <div class="phase-body">
+      <div class="phase-label">Phase 3 · 3.2 – 4.5s</div>
+      <div class="phase-title">Settle & Color Lock</div>
+      <div class="phase-desc">
+        Blade decelerates (spin animation easing to stop). Churning slows. Liquid surface flattens with a gentle final wave. The liquid transitions to its <strong>final blended color</strong> (calculated average of all ingredient colors). Power button indicator flips from red to green.
+      </div>
+      <div class="phase-timing">1.3s settle · CSS transition on fill color</div>
+      <span class="tag tag-css">CSS ease-out deceleration</span>
+      <span class="tag tag-svg">SVG fill transition</span>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot"></div>
+      <div class="phase-connector"></div>
+    </div>
+    <div class="phase-body">
+      <div class="phase-label">Phase 4 · 4.5 – 6.5s</div>
+      <div class="phase-title">Pour Into Glass</div>
+      <div class="phase-desc">
+        A glass SVG <strong>slides in from the right</strong>. The blender jar tilts slightly (CSS rotate). A smooth liquid stream SVG path animates from the jar spout into the glass — using a <strong>stroke-dashoffset</strong> trick to draw the stream. The glass fills from bottom to top with the blend color.
+      </div>
+      <div class="phase-timing">2s total · glass slide: 0.4s · stream draw: 0.8s · fill rise: 1.2s</div>
+      <span class="tag tag-css">CSS translateX slide-in</span>
+      <span class="tag tag-svg">SVG stroke-dashoffset stream</span>
+      <span class="tag tag-svg">SVG clipPath fill rise</span>
+    </div>
+  </div>
+
+  <div class="phase">
+    <div class="phase-line">
+      <div class="phase-dot" style="background:#34d399; box-shadow: 0 0 8px rgba(52,211,153,0.6);"></div>
+    </div>
+    <div class="phase-body">
+      <div class="phase-label">Phase 5 · 6.5s+</div>
+      <div class="phase-title">Result State</div>
+      <div class="phase-desc">
+        The glass stays on screen. A result label fades in below it with the smoothie name (e.g., <em>"Mango &amp; Strawberry Blend"</em>). A <strong>"Blend Again"</strong> button replaces "Blend It!" and resets the whole sequence — glass slides out, blender resets, ingredients re-enable.
+      </div>
+      <span class="tag tag-js">JS state reset</span>
+      <span class="tag tag-css">CSS fade-in</span>
+    </div>
+  </div>
+
+</div>
+
+<p class="subtitle">Does this animation flow look right? Any phase you'd change?</p>

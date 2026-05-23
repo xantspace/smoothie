@@ -1,0 +1,199 @@
+<h2>Design Section 3 — Pour Layout &amp; Result State</h2>
+<p class="subtitle">How the glass appears and where the result label lives</p>
+
+<style>
+.split { display: flex; gap: 24px; }
+.mockup { flex: 1; }
+.scene {
+  background: #0a1628;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+  min-height: 260px;
+}
+.scene-label {
+  position: absolute;
+  top: 10px; left: 12px;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #475569;
+}
+.blender-mini {
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  position: relative;
+}
+/* stream path drawn between blender & glass */
+.stream-wrap {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+}
+.result-label {
+  text-align: center;
+  margin-top: 4px;
+}
+.result-label .blend-name {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f1f5f9;
+}
+.result-label .blend-sub {
+  font-size: 0.75rem;
+  color: #64748b;
+  margin-top: 2px;
+}
+.blend-again-btn {
+  margin-top: 8px;
+  padding: 6px 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #ff3f6c, #ff8e53);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: none;
+  cursor: default;
+}
+</style>
+
+<div class="split">
+
+  <!-- During Pour -->
+  <div class="mockup">
+    <div class="mockup-header">During Pour (Phase 4)</div>
+    <div class="mockup-body">
+      <div class="scene">
+        <span class="scene-label">blender-container</span>
+        <div class="blender-mini" style="position:relative; width:260px; height:180px;">
+
+          <!-- Blender (tilted slightly) -->
+          <svg viewBox="0 0 160 220" width="110" height="154" style="transform: rotate(-12deg) translateX(8px); transform-origin: bottom center;">
+            <defs>
+              <linearGradient id="p-liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#fb923c"/>
+                <stop offset="100%" stop-color="#f43f5e"/>
+              </linearGradient>
+            </defs>
+            <path d="M28 24 L132 24 L112 172 L48 172 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="1.5"/>
+            <path d="M50 165 L110 165 L114 110 L46 110 Z" fill="url(#p-liquid)" opacity="0.9"/>
+            <path d="M20 24 L140 24 L134 14 L26 14 Z" fill="#1e293b"/>
+            <rect x="52" y="172" width="56" height="32" rx="6" fill="#1e293b"/>
+            <circle cx="80" cy="188" r="7" fill="#0f172a" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <circle cx="80" cy="188" r="3.5" fill="#16a34a"/>
+          </svg>
+
+          <!-- Liquid stream SVG -->
+          <svg style="position:absolute;top:0;left:0;width:100%;height:100%;" viewBox="0 0 260 180">
+            <defs>
+              <linearGradient id="stream-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#fb923c" stop-opacity="0.9"/>
+                <stop offset="100%" stop-color="#f43f5e" stop-opacity="0.6"/>
+              </linearGradient>
+            </defs>
+            <!-- Curved stream from blender spout to glass -->
+            <path d="M95 38 Q130 60 152 90" fill="none" stroke="url(#stream-grad)" stroke-width="5" stroke-linecap="round" opacity="0.85"/>
+          </svg>
+
+          <!-- Glass (sliding in from right) -->
+          <svg viewBox="0 0 80 130" width="72" height="117" style="margin-left: auto; margin-top: 30px;">
+            <defs>
+              <linearGradient id="g-liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%" stop-color="#fb923c"/>
+                <stop offset="100%" stop-color="#f43f5e"/>
+              </linearGradient>
+              <clipPath id="glass-clip">
+                <path d="M12 8 L68 8 L60 110 L20 110 Z"/>
+              </clipPath>
+            </defs>
+            <!-- Glass outline -->
+            <path d="M12 8 L68 8 L60 110 L20 110 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+            <!-- Liquid fill (partial - pouring in progress) -->
+            <rect x="0" y="60" width="80" height="60" fill="url(#g-liquid)" clip-path="url(#glass-clip)" opacity="0.85"/>
+            <!-- Glass highlight -->
+            <path d="M18 12 L22 105" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
+            <!-- Straw -->
+            <line x1="55" y1="8" x2="65" y2="-10" stroke="rgba(255,255,255,0.4)" stroke-width="3" stroke-dasharray="4 2" stroke-linecap="round"/>
+            <!-- Base rim -->
+            <line x1="20" y1="110" x2="60" y2="110" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <p style="font-size:0.7rem; color:#475569; text-align:center;">Blender tilts · stream draws in · glass fills from bottom</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Result State -->
+  <div class="mockup">
+    <div class="mockup-header">Result State (Phase 5)</div>
+    <div class="mockup-body">
+      <div class="scene">
+        <span class="scene-label">blender-container</span>
+        <div style="display:flex; align-items:flex-end; gap: 24px;">
+
+          <!-- Blender back to upright, liquid drained -->
+          <svg viewBox="0 0 160 220" width="100" height="138">
+            <path d="M28 24 L132 24 L112 172 L48 172 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.15)" stroke-width="1.5"/>
+            <!-- Mostly empty, just a thin residue -->
+            <path d="M50 165 L110 165 L112 155 L48 155 Z" fill="rgba(251,146,60,0.2)"/>
+            <path d="M20 24 L140 24 L134 14 L26 14 Z" fill="#1e293b"/>
+            <rect x="52" y="172" width="56" height="32" rx="6" fill="#1e293b"/>
+            <circle cx="80" cy="188" r="7" fill="#0f172a"/>
+            <circle cx="80" cy="188" r="3.5" fill="#16a34a"/>
+          </svg>
+
+          <!-- Filled glass -->
+          <div style="display:flex; flex-direction:column; align-items:center; gap:8px;">
+            <svg viewBox="0 0 80 130" width="68" height="110">
+              <defs>
+                <linearGradient id="g2-liquid" x1="0%" y1="0%" x2="0%" y2="100%">
+                  <stop offset="0%" stop-color="#fb923c"/>
+                  <stop offset="100%" stop-color="#f43f5e"/>
+                </linearGradient>
+                <clipPath id="glass-clip2">
+                  <path d="M12 8 L68 8 L60 110 L20 110 Z"/>
+                </clipPath>
+              </defs>
+              <path d="M12 8 L68 8 L60 110 L20 110 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" stroke-width="1.5"/>
+              <rect x="0" y="15" width="80" height="100" fill="url(#g2-liquid)" clip-path="url(#glass-clip2)" opacity="0.88"/>
+              <!-- Foam on top -->
+              <ellipse cx="40" cy="18" rx="22" ry="5" fill="rgba(255,255,255,0.2)"/>
+              <path d="M18 12 L22 105" stroke="rgba(255,255,255,0.1)" stroke-width="5" stroke-linecap="round"/>
+              <line x1="55" y1="8" x2="65" y2="-8" stroke="rgba(255,255,255,0.45)" stroke-width="3" stroke-dasharray="4 2" stroke-linecap="round"/>
+              <line x1="20" y1="110" x2="60" y2="110" stroke="rgba(255,255,255,0.15)" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+
+            <!-- Result label below glass -->
+            <div class="result-label">
+              <div class="blend-name">Mango &amp; Berry Blend</div>
+              <div class="blend-sub">Your custom smoothie</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Blend Again button -->
+        <button class="blend-again-btn">Blend Again</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="section" style="margin-top:20px;">
+  <h3>Layout notes</h3>
+  <ul style="color:#94a3b8; line-height:2; font-size:0.875rem;">
+    <li>Both blender and glass live inside the existing <code>.blender-container</code> — no layout shift</li>
+    <li>Glass is hidden (opacity 0, translateX +60px) until Phase 4 triggers</li>
+    <li>Blender tilts via CSS <code>rotate(-12deg)</code> on the SVG wrapper during pour</li>
+    <li>After reset, glass slides back out, blender returns upright</li>
+  </ul>
+</div>
+
+<p class="subtitle">Does this layout work? Any feedback before we write the spec?</p>

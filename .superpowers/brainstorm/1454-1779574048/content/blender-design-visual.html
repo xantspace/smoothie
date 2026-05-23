@@ -1,0 +1,165 @@
+<h2>Design Section 1 — Blender Visual</h2>
+<p class="subtitle">The new realistic SVG blender. Does this feel right as the base?</p>
+
+<div class="mockup">
+  <div class="mockup-header">Redesigned Blender SVG (idle state)</div>
+  <div class="mockup-body" style="background:#0f172a; display:flex; justify-content:center; align-items:center; padding:40px; gap:60px;">
+
+    <!-- NEW BLENDER -->
+    <div style="text-align:center;">
+      <p style="color:#94a3b8; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px;">New Design</p>
+      <svg viewBox="0 0 320 420" width="220" height="290">
+        <defs>
+          <linearGradient id="d-jar-left" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.01)"/>
+            <stop offset="20%" stop-color="rgba(255,255,255,0.10)"/>
+            <stop offset="60%" stop-color="rgba(255,255,255,0.04)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.01)"/>
+          </linearGradient>
+          <linearGradient id="d-base" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#475569"/>
+            <stop offset="40%" stop-color="#1e293b"/>
+            <stop offset="100%" stop-color="#0f172a"/>
+          </linearGradient>
+          <linearGradient id="d-lid" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#334155"/>
+            <stop offset="100%" stop-color="#0f172a"/>
+          </linearGradient>
+          <linearGradient id="d-blade" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#cbd5e1"/>
+            <stop offset="50%" stop-color="#64748b"/>
+            <stop offset="100%" stop-color="#334155"/>
+          </linearGradient>
+          <linearGradient id="d-liquid-idle" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="rgba(255,255,255,0.06)"/>
+            <stop offset="100%" stop-color="rgba(255,255,255,0.02)"/>
+          </linearGradient>
+          <filter id="d-glow-red">
+            <feGaussianBlur stdDeviation="4" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <filter id="d-glow-soft">
+            <feGaussianBlur stdDeviation="6" result="blur"/>
+            <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+          </filter>
+          <clipPath id="d-jar-clip">
+            <path d="M102 82 L218 82 L192 302 L128 302 Z"/>
+          </clipPath>
+        </defs>
+
+        <!-- Drop shadow under entire unit -->
+        <ellipse cx="160" cy="395" rx="75" ry="10" fill="rgba(0,0,0,0.45)"/>
+
+        <!-- === JAR === -->
+        <!-- Jar body fill -->
+        <path d="M102 82 L218 82 L192 302 L128 302 Z"
+              fill="url(#d-jar-left)"
+              stroke="rgba(255,255,255,0.18)" stroke-width="1.5"/>
+
+        <!-- Left-edge highlight streak -->
+        <path d="M108 90 L134 295" stroke="rgba(255,255,255,0.10)" stroke-width="10" stroke-linecap="round"/>
+        <!-- Right-edge subtle reflection -->
+        <path d="M208 90 L196 280" stroke="rgba(255,255,255,0.04)" stroke-width="6" stroke-linecap="round"/>
+
+        <!-- Liquid placeholder (idle = barely visible) -->
+        <path d="M131 296 L189 296 L194 270 L126 270 Z" fill="url(#d-liquid-idle)" clip-path="url(#d-jar-clip)"/>
+
+        <!-- Measuring marks right side -->
+        <line x1="200" y1="130" x2="210" y2="130" stroke="rgba(255,255,255,0.25)" stroke-width="1.5"/>
+        <text x="212" y="134" font-size="9" fill="rgba(255,255,255,0.2)" font-family="monospace">MAX</text>
+        <line x1="204" y1="180" x2="212" y2="180" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+        <line x1="206" y1="230" x2="213" y2="230" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+
+        <!-- Handle left -->
+        <path d="M102 110 Q68 110 68 150 Q68 200 102 200"
+              fill="none" stroke="rgba(255,255,255,0.12)" stroke-width="9" stroke-linecap="round"/>
+        <path d="M102 110 Q72 110 72 150 Q72 196 102 196"
+              fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="5" stroke-linecap="round"/>
+
+        <!-- === LID === -->
+        <!-- Lid base -->
+        <path d="M96 82 L224 82 L216 66 L104 66 Z" fill="url(#d-lid)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+        <!-- Lid top ridge -->
+        <rect x="136" y="52" width="48" height="16" rx="8"
+              fill="#1e293b" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
+        <!-- Lid center knob -->
+        <rect x="148" y="46" width="24" height="10" rx="5"
+              fill="#0f172a" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+        <!-- === BASE === -->
+        <path d="M120 302 L200 302 L208 370 L112 370 Z"
+              fill="url(#d-base)" stroke="rgba(0,0,0,0.6)" stroke-width="1.5"/>
+
+        <!-- Base front panel -->
+        <rect x="124" y="310" width="72" height="48" rx="6"
+              fill="rgba(255,255,255,0.03)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+
+        <!-- Speed indicator dots -->
+        <circle cx="143" cy="328" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="160" cy="328" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+        <circle cx="177" cy="328" r="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+
+        <!-- Power button ring -->
+        <circle cx="160" cy="350" r="12" fill="#0f172a" stroke="rgba(255,255,255,0.08)" stroke-width="1.5"/>
+        <!-- Glowing red indicator -->
+        <circle cx="160" cy="350" r="6" fill="#dc2626" filter="url(#d-glow-red)"/>
+        <!-- Power symbol -->
+        <path d="M160 345 L160 349" stroke="rgba(255,255,255,0.6)" stroke-width="1.5" stroke-linecap="round"/>
+        <path d="M156.5 346.5 A5 5 0 1 0 163.5 346.5" fill="none" stroke="rgba(255,255,255,0.5)" stroke-width="1.5" stroke-linecap="round"/>
+
+        <!-- Base footer strip -->
+        <rect x="112" y="364" width="96" height="8" rx="4" fill="rgba(0,0,0,0.3)"/>
+
+        <!-- === BLADE ASSEMBLY === -->
+        <!-- Blade hub -->
+        <ellipse cx="160" cy="302" rx="22" ry="7" fill="#334155" stroke="rgba(0,0,0,0.4)" stroke-width="1"/>
+        <!-- Blade cross -->
+        <line x1="138" y1="300" x2="182" y2="304" stroke="url(#d-blade)" stroke-width="5" stroke-linecap="round"/>
+        <line x1="141" y1="304" x2="179" y2="300" stroke="url(#d-blade)" stroke-width="5" stroke-linecap="round"/>
+        <!-- Center rivet -->
+        <circle cx="160" cy="302" r="4" fill="#475569" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      </svg>
+    </div>
+
+    <!-- CURRENT BLENDER for comparison -->
+    <div style="text-align:center; opacity:0.5;">
+      <p style="color:#94a3b8; font-size:0.75rem; text-transform:uppercase; letter-spacing:1px; margin-bottom:16px;">Current (for reference)</p>
+      <svg viewBox="0 0 320 400" width="180" height="225">
+        <defs>
+          <linearGradient id="old-metal" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#cbd5e1"/>
+            <stop offset="50%" stop-color="#64748b"/>
+            <stop offset="100%" stop-color="#334155"/>
+          </linearGradient>
+        </defs>
+        <path d="M90 140 L60 140 L60 260 L90 260" fill="none" stroke="rgba(255,255,255,0.15)" stroke-width="8" stroke-linecap="round"/>
+        <path d="M100 80 L220 80 L190 300 L130 300 Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <line x1="180" y1="120" x2="190" y2="120" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <line x1="175" y1="180" x2="185" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <line x1="170" y1="240" x2="180" y2="240" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+        <rect x="110" y="300" width="100" height="60" rx="10" fill="url(#old-metal)" stroke="rgba(0,0,0,0.5)" stroke-width="2"/>
+        <circle cx="160" cy="330" r="16" fill="#1e293b" stroke="rgba(255,255,255,0.1)" stroke-width="2"/>
+        <circle cx="160" cy="330" r="6" fill="#ef4444"/>
+        <path d="M95 80 L225 80 L215 65 L105 65 Z" fill="#0f172a"/>
+        <ellipse cx="160" cy="300" rx="16" ry="6" fill="#475569"/>
+        <line x1="135" y1="297" x2="185" y2="303" stroke="url(#old-metal)" stroke-width="4" stroke-linecap="round"/>
+        <line x1="140" y1="303" x2="180" y2="297" stroke="url(#old-metal)" stroke-width="4" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+  </div>
+</div>
+
+<div class="section">
+  <h3>Key upgrades in the new blender</h3>
+  <ul style="color:#94a3b8; line-height:2;">
+    <li>Glass jar with realistic left-edge <strong>highlight streak</strong> and right-edge reflection</li>
+    <li>Taller, more proportional jar shape with a better lid (knob + ridge)</li>
+    <li>Redesigned metal base: <strong>speed dots</strong>, glowing power button with power symbol</li>
+    <li>Curved handle with dual-stroke depth effect</li>
+    <li>Proper drop shadow beneath the unit</li>
+    <li>Blade assembly with metallic gradient and center rivet</li>
+  </ul>
+</div>
+
+<p class="subtitle">Does this direction look right? Click or type your feedback.</p>
